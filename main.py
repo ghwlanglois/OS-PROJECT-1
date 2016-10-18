@@ -29,7 +29,6 @@ def FCFS():
                 current_process = Q[0]
                 Q.remove(Q[0])
                 current_process['state'] = 'RUNNING'
-                #addTime(t_cs/2)
                 cs = 4
                 current_process['cpu_burst_time_end'] = current_process['cpu_burst_time']+time+cs
                 print("time "+str(time+cs)+"ms: Process "+current_process['process_id']+" started using the CPU [Q "+StringQ()+"]")
@@ -37,21 +36,16 @@ def FCFS():
             if current_process != None:
                 if current_process['cpu_burst_time_end'] == time:
                     current_process['num_bursts_left'] -= 1
-                    #addTime(t_cs/2)
                     cs = 4
                     if current_process['num_bursts_left'] == 0:
                         print("time "+str(time)+"ms: Process "+current_process['process_id']+" terminated [Q "+StringQ()+"]")
                         current_process = None
                         total_done += 1
-                        #continue
                     else:
                         current_process['io_time_end'] = current_process['io_time']+time
-                        #print process['io_time_end']
                         print("time "+str(time)+"ms: Process "+current_process['process_id']+" completed a CPU burst; "+str(current_process['num_bursts_left'])+" to go [Q "+StringQ()+"]")
                         print("time "+str(time)+"ms: Process "+current_process['process_id']+" blocked on I/O until time "+str(current_process['io_time_end'])+"ms [Q "+StringQ()+"]")
                         current_process['state'] = 'BLOCKED'
-                    #addTime(t_cs/2)
-                    #cs += 4
                     current_process = None
         else:
             cs -= 1
