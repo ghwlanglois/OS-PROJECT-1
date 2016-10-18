@@ -43,7 +43,7 @@ def ScheduleProcesses(FCFS,SJF,RR):
                 Q_SJF = sorted(Q, key=lambda k: k['cpu_burst_time'])
                 Q = Q_SJF
             
-            # If there isn't currently a process runnnig and the Q isn't empty
+            # If there isn't currently a process runnning and the Q isn't empty
             # then start the process and remove if from the Q
             if current_process == None and len(Q)>0:
                 current_process = Q[0]
@@ -144,5 +144,11 @@ Q = []
 
 # FCFS
 ScheduleProcesses(True,False,False)
+# SJF
+data = []
+Q = []
 ScheduleProcesses(False,True,False)
+# RR
+data = []
+Q = []
 ScheduleProcesses(False,False,True)
