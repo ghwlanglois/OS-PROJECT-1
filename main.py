@@ -77,11 +77,11 @@ def ScheduleProcesses(FCFS,SJF,RR):
         # Step the program forward
         time += 1
     if FCFS:
-        print("time "+str(time)+"ms: Simulator started for FCFS [Q empty]")
+        print("time "+str(time)+"ms: Simulator ended for FCFS")
     elif SJF:
-        print("time "+str(time)+"ms: Simulator started for SJF [Q empty]")
+        print("time "+str(time)+"ms: Simulator ended for SJF")
     elif RR:
-        print("time "+str(time)+"ms: Simulator started for RR [Q empty]")
+        print("time "+str(time)+"ms: Simulator ended for RR")
 
 # Returns a string that is used to show the user the contents of the Q
 def StringQ():
@@ -147,8 +147,10 @@ ScheduleProcesses(True,False,False)
 # SJF
 data = []
 Q = []
+ParseInput()
 ScheduleProcesses(False,True,False)
 # RR
 data = []
 Q = []
+ParseInput()
 ScheduleProcesses(False,False,True)
