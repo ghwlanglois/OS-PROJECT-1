@@ -43,7 +43,7 @@ def ScheduleProcesses(FCFS,SJF,RR):
                 Q_SJF = sorted(Q, key=lambda k: k['cpu_burst_time'])
                 Q = Q_SJF
             
-            # If there isn't currently a process runnnig and the Q isn't empty
+            # If there isn't currently a process runnning and the Q isn't empty
             # then start the process and remove if from the Q
             if current_process == None and len(Q)>0:
                 current_process = Q[0]
@@ -77,11 +77,11 @@ def ScheduleProcesses(FCFS,SJF,RR):
         # Step the program forward
         time += 1
     if FCFS:
-        print("time "+str(time)+"ms: Simulator started for FCFS [Q empty]")
+        print("time "+str(time)+"ms: Simulator ended for FCFS")
     elif SJF:
-        print("time "+str(time)+"ms: Simulator started for SJF [Q empty]")
+        print("time "+str(time)+"ms: Simulator ended for SJF")
     elif RR:
-        print("time "+str(time)+"ms: Simulator started for RR [Q empty]")
+        print("time "+str(time)+"ms: Simulator ended for RR")
 
 # Returns a string that is used to show the user the contents of the Q
 def StringQ():
@@ -144,5 +144,13 @@ Q = []
 
 # FCFS
 ScheduleProcesses(True,False,False)
+# SJF
+data = []
+Q = []
+ParseInput()
 ScheduleProcesses(False,True,False)
+# RR
+data = []
+Q = []
+ParseInput()
 ScheduleProcesses(False,False,True)
