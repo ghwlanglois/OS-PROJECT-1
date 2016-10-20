@@ -73,7 +73,7 @@ def ScheduleProcesses(FCFS,SJF,RR):
                             current_process['num_bursts_left'] -= 1
                             if current_process['num_bursts_left'] == 0:
                                 cs += t_cs/2+current_process['cpu_burst_time_left']
-                                sys.stdout.write("time "+str(time+cs/2)+"ms: Process "+current_process['process_id']+" terminated [Q "+StringQ()+"]\n")
+                                sys.stdout.write("time "+str(int(time+cs/2))+"ms: Process "+current_process['process_id']+" terminated [Q "+StringQ()+"]\n")
                                 current_process = None
                                 total_done += 1
                             else:
