@@ -28,6 +28,9 @@ def ScheduleProcesses(FCFS,SJF,RR):
                 if process['io_time_end'] == time:
                     process['state'] = 'READY'
                     Q.append(process)
+                    if SJF and len(Q)>0:
+                        Q_SJF = sorted(Q, key=lambda k: k['cpu_burst_time'])
+                        Q = Q_SJF
                     sys.stdout.write("time "+str(time)+"ms: Process "+process['process_id']+" completed I/O [Q "+StringQ()+"]\n")
         
         # Tally the wait time of each process while it's in the Q
