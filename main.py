@@ -93,6 +93,7 @@ def ScheduleProcesses(FCFS,SJF,RR):
                             else:
                                 sys.stdout.write("time "+str(time)+"ms: Time slice expired; no preemption because ready queue is empty [Q empty]\n")
                                 cs -= 3
+                                time -= 1
                                 current_process['cpu_burst_time_left'] = current_process['cpu_burst_time']+1
                                 if current_process['cpu_burst_time_left'] <= t_slice:
                                     current_process['cpu_burst_time_end'] = current_process['cpu_burst_time_left']+time+cs
